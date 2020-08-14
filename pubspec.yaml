@@ -29,9 +29,19 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
 
+  # Functional programming in Dart
+  dartz: ^0.9.1
+
+  # deal with immutable objects
+  freezed_annotation: ^0.11.0+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  # code generator for unions/pattern-matching/copy
+  # $:> flutter pub run build_runner watch
+  freezed: ^0.11.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
