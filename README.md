@@ -6,5 +6,4 @@
 
 1. Domain-Driven Design Principles
 2. Authentication Value Objects
-3. AuthFacadeInterface
-
+3. Auth Facade Interface
