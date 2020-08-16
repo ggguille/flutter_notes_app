@@ -35,6 +35,9 @@ dependencies:
   # deal with immutable objects
   freezed_annotation: ^0.11.0+1
 
+  # Widgets that make it easy to integrate blocs and cubits. Built to work with package:bloc.
+  flutter_bloc: ^6.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
