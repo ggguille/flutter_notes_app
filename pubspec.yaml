@@ -38,6 +38,12 @@ dependencies:
   # Widgets that make it easy to integrate blocs and cubits. Built to work with package:bloc.
   flutter_bloc: ^6.0.1
 
+  # A Flutter plugin to use the Firebase Core API, which enables connecting to multiple Firebase apps.
+  firebase_core: ^0.5.0
+
+  # A Flutter plugin to use the Firebase Authentication API.
+  firebase_auth: ^0.18.0+1
+
   # A Flutter plugin for Google Sign In.
   google_sign_in: ^4.5.3
 
