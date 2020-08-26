@@ -102,12 +102,18 @@ class _$CanceledByUserCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   CanceledByUser get _value => super._value as CanceledByUser;
 }
 
-class _$CanceledByUser implements CanceledByUser {
+class _$CanceledByUser with DiagnosticableTreeMixin implements CanceledByUser {
   const _$CanceledByUser();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthFailure.cancelledByUser()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AuthFailure.cancelledByUser'));
   }
 
   @override
@@ -204,12 +210,18 @@ class _$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   ServerError get _value => super._value as ServerError;
 }
 
-class _$ServerError implements ServerError {
+class _$ServerError with DiagnosticableTreeMixin implements ServerError {
   const _$ServerError();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthFailure.serverError()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AuthFailure.serverError'));
   }
 
   @override
@@ -307,12 +319,21 @@ class _$EmailAlreadyInUseCopyWithImpl<$Res>
   EmailAlreadyInUse get _value => super._value as EmailAlreadyInUse;
 }
 
-class _$EmailAlreadyInUse implements EmailAlreadyInUse {
+class _$EmailAlreadyInUse
+    with DiagnosticableTreeMixin
+    implements EmailAlreadyInUse {
   const _$EmailAlreadyInUse();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthFailure.emailAlreadyInUse()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthFailure.emailAlreadyInUse'));
   }
 
   @override
@@ -414,12 +435,21 @@ class _$InvalidEmailAndPasswordCombinationCopyWithImpl<$Res>
 }
 
 class _$InvalidEmailAndPasswordCombination
+    with DiagnosticableTreeMixin
     implements InvalidEmailAndPasswordCombination {
   const _$InvalidEmailAndPasswordCombination();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthFailure.invalidEmailAndPasswordCombination()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'AuthFailure.invalidEmailAndPasswordCombination'));
   }
 
   @override

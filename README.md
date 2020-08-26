@@ -10,3 +10,4 @@
 4. Modeling The Sign-In Form Events State
 5. Sign-In Form Logic
 6. Firebase Auth Setup Facade
+7. Injectable Linting 
