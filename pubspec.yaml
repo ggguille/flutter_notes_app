@@ -56,9 +56,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner:
-  # code generator for unions/pattern-matching/copy
+
   # $:> flutter pub run build_runner watch
+  build_runner:
+
+  # code generator for unions/pattern-matching/copy
   freezed: ^0.11.5
 
   # lint is a hand-picked, open-source, community-driven collection of lint rules for Dart and Flutter projects
@@ -66,6 +68,10 @@ dev_dependencies:
 
   # A generator for injectable library.
   injectable_generator: ^1.0.4
+
+#  fix issue with build generators (freezed and injectable)
+dependency_overrides:
+  analyzer: '0.39.14'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
