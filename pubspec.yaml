@@ -47,6 +47,12 @@ dependencies:
   # A Flutter plugin for Google Sign In.
   google_sign_in: ^4.5.3
 
+  # This is a simple Service Locator for Dart and Flutter projects with some additional goodies highly inspired by Splat
+  get_it: ^4.0.4
+
+  # Injectable is a convenient code generator for get_it
+  injectable: ^1.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -54,6 +60,12 @@ dev_dependencies:
   # code generator for unions/pattern-matching/copy
   # $:> flutter pub run build_runner watch
   freezed: ^0.11.5
+
+  # lint is a hand-picked, open-source, community-driven collection of lint rules for Dart and Flutter projects
+  lint: ^1.2.0
+
+  # A generator for injectable library.
+  injectable_generator: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
