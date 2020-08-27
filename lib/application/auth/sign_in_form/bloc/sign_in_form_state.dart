@@ -16,7 +16,7 @@ abstract class SignInFormState with _$SignInFormState {
     @required Option<Either<AuthFailure, Unit>> authFailureOrSuccess,
   }) = _SignInFormState;
 
-  factory SignInFormState.inital() =>
+  factory SignInFormState.initial() =>
       SignInFormState(
         emailAddress: EmailAddress(''),
         password: Password(''),

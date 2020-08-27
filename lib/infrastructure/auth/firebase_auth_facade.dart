@@ -48,7 +48,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
     try {
       final googleAuthentication = await googleUser.authentication;
-      final authCredentials = GoogleAuthProvider.credential(
+      final authCredentials = GoogleAuthProvider.getCredential(
         idToken: googleAuthentication.idToken,
         accessToken: googleAuthentication.accessToken,
       );
