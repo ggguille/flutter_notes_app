@@ -8,8 +8,7 @@ import 'package:flutter_notes_app/domain/auth/value_objects.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
-@Injectable(as: IAuthFacade)
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
@@ -49,7 +48,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
     try {
       final googleAuthentication = await googleUser.authentication;
-      final authCredentials = GoogleAuthProvider.credential(
+      final authCredentials = GoogleAuthProvider.getCredential(
         idToken: googleAuthentication.idToken,
         accessToken: googleAuthentication.accessToken,
       );
