@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -55,6 +55,9 @@ dependencies:
 
   # Use this package if you need more customization when notifying your user.
   flushbar: ^1.10.4
+
+  # Simple, fast generation of RFC4122 UUIDs.
+  uuid: ^2.2.2
 
 dev_dependencies:
   flutter_test:
