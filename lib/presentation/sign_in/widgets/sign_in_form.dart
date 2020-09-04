@@ -16,11 +16,11 @@ class SignInForm extends StatelessWidget {
             (failure) {
               FlushbarHelper.createError(
                 message: failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server Error',
-                  emailAlreadyInUse: (_) => 'Email already in use',
-                  invalidEmailAndPasswordCombination: (_) => 'Invalid email and password combination'
-                ),
+                    cancelledByUser: (_) => 'Cancelled',
+                    serverError: (_) => 'Server Error',
+                    emailAlreadyInUse: (_) => 'Email already in use',
+                    invalidEmailAndPasswordCombination: (_) =>
+                        'Invalid email and password combination'),
               ).show(context);
             },
             (_) {
@@ -57,7 +57,7 @@ class SignInForm extends StatelessWidget {
                     .value
                     .fold(
                       (f) => f.maybeMap(
-                        invalidEmail: (_) => "Invalid Email",
+                        invalidEmail: (_) => 'Invalid Email',
                         orElse: () => null,
                       ),
                       (_) => null,
@@ -74,18 +74,14 @@ class SignInForm extends StatelessWidget {
                 onChanged: (value) => context
                     .bloc<SignInFormBloc>()
                     .add(SignInFormEvent.passwordChanged(value)),
-                validator: (value) => context
-                    .bloc<SignInFormBloc>()
-                    .state
-                    .emailAddress
-                    .value
-                    .fold(
-                      (f) => f.maybeMap(
-                        shortPassword: (_) => "Short Password",
-                        orElse: () => null,
-                      ),
-                      (_) => null,
-                    ),
+                validator: (value) =>
+                    context.bloc<SignInFormBloc>().state.password.value.fold(
+                          (f) => f.maybeMap(
+                            shortPassword: (_) => "Short Password",
+                            orElse: () => null,
+                          ),
+                          (_) => null,
+                        ),
               ),
               const SizedBox(
                 height: 8,
@@ -127,7 +123,15 @@ class SignInForm extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
-              )
+              ),
+              if (state.isSubmitting) ...[
+                const SizedBox(
+                  height: 8,
+                ),
+                const LinearProgressIndicator(
+                  value: null,
+                ),
+              ]
             ],
           ),
         );

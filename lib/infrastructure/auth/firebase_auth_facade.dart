@@ -20,11 +20,10 @@ class FirebaseAuthFacade implements IAuthFacade {
     this._googleSignIn,
   );
 
-
   @override
-  Future<Option<User>> getSignedUser() =>
-      _firebaseAuth.currentUser()
-          .then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
+  Future<Option<User>> getSignedUser() => _firebaseAuth
+      .currentUser()
+      .then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
@@ -36,8 +35,8 @@ class FirebaseAuthFacade implements IAuthFacade {
     final passwordStr = password.getOrCrash();
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
-       email: emailAddressStr,
-       password: passwordStr,
+        email: emailAddressStr,
+        password: passwordStr,
       );
       return right(unit);
     } on PlatformException catch (e) {
@@ -63,7 +62,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
       await _firebaseAuth.signInWithCredential(authCredentials);
       return right(unit);
-    } on PlatformException catch(_) {
+    } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
     }
   }
@@ -82,7 +81,8 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
       return right(unit);
     } on PlatformException catch (e) {
-      if (e.code == 'ERROR_WRONG_PASSWORD' || e.code == 'ERROR_USER_NOT_FOUND') {
+      if (e.code == 'ERROR_WRONG_PASSWORD' ||
+          e.code == 'ERROR_USER_NOT_FOUND') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       }
       return left(const AuthFailure.serverError());
@@ -90,8 +90,6 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<void> signOut() => Future.wait([
-    _googleSignIn.signOut(),
-    _firebaseAuth.signOut()
-  ]);
+  Future<void> signOut() =>
+      Future.wait([_googleSignIn.signOut(), _firebaseAuth.signOut()]);
 }
