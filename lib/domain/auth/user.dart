@@ -1,4 +1,4 @@
-import 'package:flutter_notes_app/domain/core/value_object.dart';
+import 'package:flutter_notes_app/domain/core/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';

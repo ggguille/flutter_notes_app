@@ -15,5 +15,6 @@
 9. Getting the Signed-In User 
 10. Navigation Based on Auth State 
 11. Note Value Failures
+12. Note Value Objects
 
 
