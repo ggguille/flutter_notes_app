@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_notes_app/domain/core/failures.dart';
-import 'package:flutter_notes_app/domain/core/value_object.dart';
+import 'package:flutter_notes_app/domain/core/value_objects.dart';
 import 'package:flutter_notes_app/domain/core/value_validators.dart';
 
 class EmailAddress extends ValueObject<String> {
