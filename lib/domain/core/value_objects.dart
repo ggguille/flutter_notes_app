@@ -6,7 +6,6 @@ import 'package:uuid/uuid.dart';
 
 @immutable
 abstract class ValueObject<T> {
-
   const ValueObject();
 
   Either<ValueFailure<T>, T> get value;
@@ -15,14 +14,21 @@ abstract class ValueObject<T> {
     return value.fold((f) => throw UnexpectedValueError(f), id);
   }
 
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold(
+      (f) => left(f),
+      (_) => right(unit),
+    );
+  }
+
   bool isValid() => value.isRight();
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is ValueObject<T> &&
-              runtimeType == other.runtimeType &&
-              value == other.value;
+      other is ValueObject<T> &&
+          runtimeType == other.runtimeType &&
+          value == other.value;
 
   @override
   int get hashCode => value.hashCode;
@@ -34,21 +40,16 @@ abstract class ValueObject<T> {
 }
 
 class UniqueId extends ValueObject<String> {
-
   @override
   final Either<ValueFailure<String>, String> value;
 
   factory UniqueId() {
-    return UniqueId._(
-      right(Uuid().v1())
-    );
+    return UniqueId._(right(Uuid().v1()));
   }
 
   factory UniqueId.fromUniqueString(String uniqueId) {
     assert(uniqueId != null);
-    return UniqueId._(
-        right(uniqueId)
-    );
+    return UniqueId._(right(uniqueId));
   }
 
   const UniqueId._(this.value);
