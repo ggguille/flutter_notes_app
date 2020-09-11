@@ -65,7 +65,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # $:> flutter pub run build_runner watch
+  # $:> flutter pub run build_runner watch --delete-conflicting-outputs
   build_runner: null
 
   # code generator for unions/pattern-matching/copy
