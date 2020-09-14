@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notes_app/domain/auth/auth_failure.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_notes_app/domain/auth/user.dart';
 import 'package:flutter_notes_app/domain/auth/value_objects.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_notes_app/infrastructure/auth/firebase_user_mapper.dart';
+import './firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
@@ -21,16 +21,14 @@ class FirebaseAuthFacade implements IAuthFacade {
   );
 
   @override
-  Future<Option<User>> getSignedUser() => _firebaseAuth
-      .currentUser()
-      .then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
+  Future<Option<User>> getSignedUser() async => 
+      optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     @required EmailAddress email,
     @required Password password,
   }) async {
-    _firebaseAuth.currentUser().then((value) => value.uid);
     final emailAddressStr = email.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
