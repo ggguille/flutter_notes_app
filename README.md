@@ -17,5 +17,6 @@
 11. Note Value Failures
 12. Note Value Objects
 13. Note Entities
+14. Data Transfer Objects
 
 
