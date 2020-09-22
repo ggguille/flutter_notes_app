@@ -67,6 +67,9 @@ dependencies:
   # A Flutter plugin to use the Cloud Firestore API.
   cloud_firestore: ^0.14.0+2
 
+  # RxDart adds additional capabilities to Dart Streams and StreamControllers.
+  rxdart: ^0.24.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
