@@ -20,5 +20,6 @@
 14. Data Transfer Objects
 15. Note Watcher & Actor Blocs
 16. Watching Notes on Firestore
+17. Create, Update, Delete Notes
 
 
