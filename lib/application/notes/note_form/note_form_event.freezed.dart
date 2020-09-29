@@ -34,9 +34,9 @@ class _$NoteFormEventTearOff {
   }
 
 // ignore: unused_element
-  _TodosChanged todosChanged(IList<TodoItemPrimitive> todoItem) {
+  _TodosChanged todosChanged(IList<TodoItemPrimitive> todos) {
     return _TodosChanged(
-      todoItem,
+      todos,
     );
   }
 
@@ -55,7 +55,7 @@ mixin _$NoteFormEvent {
     @required Result initialized(Option<Note> initialNoteOption),
     @required Result bodyChanged(String bodyStr),
     @required Result colorChanged(Color color),
-    @required Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    @required Result todosChanged(IList<TodoItemPrimitive> todos),
     @required Result saved(),
   });
   @optionalTypeArgs
@@ -63,7 +63,7 @@ mixin _$NoteFormEvent {
     Result initialized(Option<Note> initialNoteOption),
     Result bodyChanged(String bodyStr),
     Result colorChanged(Color color),
-    Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    Result todosChanged(IList<TodoItemPrimitive> todos),
     Result saved(),
     @required Result orElse(),
   });
@@ -165,7 +165,7 @@ class _$_Initialized implements _Initialized {
     @required Result initialized(Option<Note> initialNoteOption),
     @required Result bodyChanged(String bodyStr),
     @required Result colorChanged(Color color),
-    @required Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    @required Result todosChanged(IList<TodoItemPrimitive> todos),
     @required Result saved(),
   }) {
     assert(initialized != null);
@@ -182,7 +182,7 @@ class _$_Initialized implements _Initialized {
     Result initialized(Option<Note> initialNoteOption),
     Result bodyChanged(String bodyStr),
     Result colorChanged(Color color),
-    Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    Result todosChanged(IList<TodoItemPrimitive> todos),
     Result saved(),
     @required Result orElse(),
   }) {
@@ -294,7 +294,7 @@ class _$_BodyChanged implements _BodyChanged {
     @required Result initialized(Option<Note> initialNoteOption),
     @required Result bodyChanged(String bodyStr),
     @required Result colorChanged(Color color),
-    @required Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    @required Result todosChanged(IList<TodoItemPrimitive> todos),
     @required Result saved(),
   }) {
     assert(initialized != null);
@@ -311,7 +311,7 @@ class _$_BodyChanged implements _BodyChanged {
     Result initialized(Option<Note> initialNoteOption),
     Result bodyChanged(String bodyStr),
     Result colorChanged(Color color),
-    Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    Result todosChanged(IList<TodoItemPrimitive> todos),
     Result saved(),
     @required Result orElse(),
   }) {
@@ -424,7 +424,7 @@ class _$_ColorChanged implements _ColorChanged {
     @required Result initialized(Option<Note> initialNoteOption),
     @required Result bodyChanged(String bodyStr),
     @required Result colorChanged(Color color),
-    @required Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    @required Result todosChanged(IList<TodoItemPrimitive> todos),
     @required Result saved(),
   }) {
     assert(initialized != null);
@@ -441,7 +441,7 @@ class _$_ColorChanged implements _ColorChanged {
     Result initialized(Option<Note> initialNoteOption),
     Result bodyChanged(String bodyStr),
     Result colorChanged(Color color),
-    Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    Result todosChanged(IList<TodoItemPrimitive> todos),
     Result saved(),
     @required Result orElse(),
   }) {
@@ -498,7 +498,7 @@ abstract class _$TodosChangedCopyWith<$Res> {
   factory _$TodosChangedCopyWith(
           _TodosChanged value, $Res Function(_TodosChanged) then) =
       __$TodosChangedCopyWithImpl<$Res>;
-  $Res call({IList<TodoItemPrimitive> todoItem});
+  $Res call({IList<TodoItemPrimitive> todos});
 }
 
 class __$TodosChangedCopyWithImpl<$Res>
@@ -513,39 +513,36 @@ class __$TodosChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object todoItem = freezed,
+    Object todos = freezed,
   }) {
     return _then(_TodosChanged(
-      todoItem == freezed
-          ? _value.todoItem
-          : todoItem as IList<TodoItemPrimitive>,
+      todos == freezed ? _value.todos : todos as IList<TodoItemPrimitive>,
     ));
   }
 }
 
 class _$_TodosChanged implements _TodosChanged {
-  const _$_TodosChanged(this.todoItem) : assert(todoItem != null);
+  const _$_TodosChanged(this.todos) : assert(todos != null);
 
   @override
-  final IList<TodoItemPrimitive> todoItem;
+  final IList<TodoItemPrimitive> todos;
 
   @override
   String toString() {
-    return 'NoteFormEvent.todosChanged(todoItem: $todoItem)';
+    return 'NoteFormEvent.todosChanged(todos: $todos)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _TodosChanged &&
-            (identical(other.todoItem, todoItem) ||
-                const DeepCollectionEquality()
-                    .equals(other.todoItem, todoItem)));
+            (identical(other.todos, todos) ||
+                const DeepCollectionEquality().equals(other.todos, todos)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(todoItem);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(todos);
 
   @override
   _$TodosChangedCopyWith<_TodosChanged> get copyWith =>
@@ -557,7 +554,7 @@ class _$_TodosChanged implements _TodosChanged {
     @required Result initialized(Option<Note> initialNoteOption),
     @required Result bodyChanged(String bodyStr),
     @required Result colorChanged(Color color),
-    @required Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    @required Result todosChanged(IList<TodoItemPrimitive> todos),
     @required Result saved(),
   }) {
     assert(initialized != null);
@@ -565,7 +562,7 @@ class _$_TodosChanged implements _TodosChanged {
     assert(colorChanged != null);
     assert(todosChanged != null);
     assert(saved != null);
-    return todosChanged(todoItem);
+    return todosChanged(todos);
   }
 
   @override
@@ -574,13 +571,13 @@ class _$_TodosChanged implements _TodosChanged {
     Result initialized(Option<Note> initialNoteOption),
     Result bodyChanged(String bodyStr),
     Result colorChanged(Color color),
-    Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    Result todosChanged(IList<TodoItemPrimitive> todos),
     Result saved(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (todosChanged != null) {
-      return todosChanged(todoItem);
+      return todosChanged(todos);
     }
     return orElse();
   }
@@ -621,10 +618,9 @@ class _$_TodosChanged implements _TodosChanged {
 }
 
 abstract class _TodosChanged implements NoteFormEvent {
-  const factory _TodosChanged(IList<TodoItemPrimitive> todoItem) =
-      _$_TodosChanged;
+  const factory _TodosChanged(IList<TodoItemPrimitive> todos) = _$_TodosChanged;
 
-  IList<TodoItemPrimitive> get todoItem;
+  IList<TodoItemPrimitive> get todos;
   _$TodosChangedCopyWith<_TodosChanged> get copyWith;
 }
 
@@ -664,7 +660,7 @@ class _$_Saved implements _Saved {
     @required Result initialized(Option<Note> initialNoteOption),
     @required Result bodyChanged(String bodyStr),
     @required Result colorChanged(Color color),
-    @required Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    @required Result todosChanged(IList<TodoItemPrimitive> todos),
     @required Result saved(),
   }) {
     assert(initialized != null);
@@ -681,7 +677,7 @@ class _$_Saved implements _Saved {
     Result initialized(Option<Note> initialNoteOption),
     Result bodyChanged(String bodyStr),
     Result colorChanged(Color color),
-    Result todosChanged(IList<TodoItemPrimitive> todoItem),
+    Result todosChanged(IList<TodoItemPrimitive> todos),
     Result saved(),
     @required Result orElse(),
   }) {
