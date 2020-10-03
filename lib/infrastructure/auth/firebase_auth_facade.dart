@@ -37,11 +37,12 @@ class FirebaseAuthFacade implements IAuthFacade {
         password: passwordStr,
       );
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
         return left(const AuthFailure.emailAlreadyInUse());
+      } else {
+        return left(const AuthFailure.serverError());
       }
-      return left(const AuthFailure.serverError());
     }
   }
 
@@ -54,7 +55,7 @@ class FirebaseAuthFacade implements IAuthFacade {
 
     try {
       final googleAuthentication = await googleUser.authentication;
-      final authCredentials = GoogleAuthProvider.getCredential(
+      final authCredentials = GoogleAuthProvider.credential(
         idToken: googleAuthentication.idToken,
         accessToken: googleAuthentication.accessToken,
       );
@@ -78,12 +79,13 @@ class FirebaseAuthFacade implements IAuthFacade {
         password: passwordStr,
       );
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'ERROR_WRONG_PASSWORD' ||
           e.code == 'ERROR_USER_NOT_FOUND') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      } else {
+        return left(const AuthFailure.serverError());
       }
-      return left(const AuthFailure.serverError());
     }
   }
 
