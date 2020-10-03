@@ -1,9 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_notes_app/application/auth/auth_bloc.dart';
+import 'package:flutter_notes_app/application/auth/auth_event.dart';
 import 'package:flutter_notes_app/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:flutter_notes_app/application/auth/sign_in_form/bloc/sign_in_form_event.dart';
 import 'package:flutter_notes_app/application/auth/sign_in_form/bloc/sign_in_form_state.dart';
+import 'package:flutter_notes_app/presentation/routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -24,7 +28,10 @@ class SignInForm extends StatelessWidget {
               ).show(context);
             },
             (_) {
-              // TODO: navigate
+              ExtendedNavigator.of(context).replace(Routes.notesOverviewPage);
+              context
+                  .bloc<AuthBloc>()
+                  .add(const AuthEvent.authCheckRequested());
             },
           ),
         );
