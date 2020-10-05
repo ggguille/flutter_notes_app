@@ -10,6 +10,7 @@ import 'package:flutter_notes_app/application/notes/note_actor/note_actor_state.
 import 'package:flutter_notes_app/application/notes/note_watcher/note_watcher_block.dart';
 import 'package:flutter_notes_app/application/notes/note_watcher/note_watcher_event.dart';
 import 'package:flutter_notes_app/injection.dart';
+import 'package:flutter_notes_app/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:flutter_notes_app/presentation/routes/router.gr.dart';
 
 class NotesOverviewPage extends StatelessWidget {
@@ -72,6 +73,7 @@ class NotesOverviewPage extends StatelessWidget {
               )
             ],
           ),
+          body: NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               // TODO navigate to NoteFormPage
