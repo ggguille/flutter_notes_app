@@ -23,5 +23,6 @@
 17. Create, Update, Delete Notes
 18. Note Form Bloc
 19. Notes Overview Page
+20. Placeholder Note Cards
 
 

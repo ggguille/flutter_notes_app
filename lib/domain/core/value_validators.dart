@@ -50,7 +50,7 @@ Either<ValueFailure<IList<T>>, IList<T>> validateMaxListLength<T>(
   int max,
 ) {
   if (input.length() <= max) {
-    right(input);
+    return right(input);
   }
   return left(ValueFailure.listTooLong(failedValue: input, max: max));
 }
