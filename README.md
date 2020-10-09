@@ -24,5 +24,6 @@
 18. Note Form Bloc
 19. Notes Overview Page
 20. Placeholder Note Cards
+21. Note Cards UI
 
 
