@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_notes_app/application/notes/note_watcher/note_watcher_block.dart';
 import 'package:flutter_notes_app/application/notes/note_watcher/note_watcher_state.dart';
+import 'package:flutter_notes_app/presentation/notes/notes_overview/widgets/error_note_card_widget.dart';
 import 'package:flutter_notes_app/presentation/notes/notes_overview/widgets/note_card_widget.dart';
 
 class NotesOverviewBody extends StatelessWidget {
@@ -18,14 +19,10 @@ class NotesOverviewBody extends StatelessWidget {
               itemBuilder: (context, index) {
                 final note = state.notes.toList()[index];
                 if (note.failureOption.isSome()) {
-                  // TODO Error Card
-                  return Container(
-                    color: Colors.red,
-                    width: 100,
-                    height: 100,
+                  return ErrorNoteCard(
+                    note: note,
                   );
                 }
-                // TODO Note Card
                 return NoteCard(
                   note: note,
                 );
