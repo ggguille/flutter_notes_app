@@ -307,6 +307,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.2"
+  flutter_hooks:
+    dependency: "direct main"
+    description:
+      name: flutter_hooks
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.14.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -702,4 +709,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.9.0-14.0.dev <3.0.0"
-  flutter: ">=1.16.0 <2.0.0"
+  flutter: ">=1.20.0 <2.0.0"

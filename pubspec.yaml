@@ -70,6 +70,9 @@ dependencies:
   # RxDart adds additional capabilities to Dart Streams and StreamControllers.
   rxdart: ^0.24.1
 
+  # A Flutter implementation of React hooks. Hooks are a new kind of object that manages a Widget life-cycles.
+  flutter_hooks: ^0.14.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
