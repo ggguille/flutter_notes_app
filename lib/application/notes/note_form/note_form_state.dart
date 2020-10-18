@@ -16,10 +16,10 @@ abstract class NoteFormState with _$NoteFormState {
   }) = _NoteFormState;
 
   factory NoteFormState.initial() => NoteFormState(
-    note: Note.empty(),
-    showErrorMessages: false,
-    isSaving:  false,
-    isEditing: false,
-    saveFailureOrSuccessOption: none()
-  );
+        note: Note.empty(),
+        showErrorMessages: false,
+        isSaving: false,
+        isEditing: false,
+        saveFailureOrSuccessOption: none(),
+      );
 }
