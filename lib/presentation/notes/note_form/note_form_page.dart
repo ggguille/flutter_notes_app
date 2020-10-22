@@ -139,15 +139,14 @@ class NoteFormPageScafold extends StatelessWidget {
         ],
       ),
       body: BlocBuilder<NoteFormBloc, NoteFormState>(
-        buildWhen: (previous, current) => previous.showErrorMessages != current.showErrorMessages,
+        buildWhen: (previous, current) =>
+            previous.showErrorMessages != current.showErrorMessages,
         builder: (context, state) {
           return Form(
             autovalidate: state.showErrorMessages,
             child: SingleChildScrollView(
               child: Column(
-                children: [
-                  const BodyField()
-                ],
+                children: [const BodyField()],
               ),
             ),
           );
