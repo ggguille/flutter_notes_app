@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +8,7 @@ import 'package:flutter_notes_app/application/notes/note_form/note_form_event.da
 import 'package:flutter_notes_app/application/notes/note_form/note_form_state.dart';
 import 'package:flutter_notes_app/domain/notes/note.dart';
 import 'package:flutter_notes_app/injection.dart';
+import 'package:flutter_notes_app/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:flutter_notes_app/presentation/routes/router.gr.dart';
 
 class NoteFormPage extends StatelessWidget {
@@ -137,6 +137,21 @@ class NoteFormPageScafold extends StatelessWidget {
             },
           )
         ],
+      ),
+      body: BlocBuilder<NoteFormBloc, NoteFormState>(
+        buildWhen: (previous, current) => previous.showErrorMessages != current.showErrorMessages,
+        builder: (context, state) {
+          return Form(
+            autovalidate: state.showErrorMessages,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const BodyField()
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

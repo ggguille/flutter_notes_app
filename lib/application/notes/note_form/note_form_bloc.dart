@@ -27,19 +27,22 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
       },
       bodyChanged: (e) async* {
         yield state.copyWith(
-            note: state.note.copyWith(body: NoteBody(e.bodyStr)),
-            saveFailureOrSuccessOption: none());
+          note: state.note.copyWith(body: NoteBody(e.bodyStr)),
+          saveFailureOrSuccessOption: none(),
+        );
       },
       colorChanged: (e) async* {
         yield state.copyWith(
-            note: state.note.copyWith(color: NoteColor(e.color)),
-            saveFailureOrSuccessOption: none());
+          note: state.note.copyWith(color: NoteColor(e.color)),
+          saveFailureOrSuccessOption: none(),
+        );
       },
       todosChanged: (e) async* {
         yield state.copyWith(
-            note: state.note.copyWith(
-                todos: List3(e.todos.map((primitive) => primitive.toDomain()))),
-            saveFailureOrSuccessOption: none());
+          note: state.note.copyWith(
+              todos: List3(e.todos.map((primitive) => primitive.toDomain()))),
+          saveFailureOrSuccessOption: none(),
+        );
       },
       saved: (e) async* {
         Either<NoteFailure, Unit> failureOrSuccess;

@@ -14,8 +14,9 @@ class NoteBody extends ValueObject<String> {
 
   factory NoteBody(String input) {
     assert(input != null);
-    return NoteBody._(validateMaxStringLength(input, maxLength)
-        .flatMap(validateStringNotEmpty));
+    return NoteBody._(
+      validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty),
+    );
   }
 
   const NoteBody._(this.value);
