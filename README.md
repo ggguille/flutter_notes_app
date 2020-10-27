@@ -30,5 +30,7 @@
 24. Note Form Page
 25. Body Field
 26. Color Field
+27. Firebase Updates
+28. Adding Todos UI
 
 
