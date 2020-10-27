@@ -24,6 +24,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # AutoRoute is a declarative routing solution, where everything needed for navigation is automatically generated for you.
+  auto_route: ^0.6.7
+
+  # A Flutter plugin to use the Cloud Firestore API.
+  cloud_firestore: ^0.14.0+2
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
@@ -31,69 +37,67 @@ dependencies:
   # Functional programming in Dart
   dartz: ^0.9.1
 
-  # deal with immutable objects
-  freezed_annotation: ^0.11.0+1
-
-  # Widgets that make it easy to integrate blocs and cubits. Built to work with package:bloc.
-  flutter_bloc: ^6.0.1
+  # A Flutter plugin to use the Firebase Authentication API.
+  firebase_auth: ^0.18.0+1
 
   # A Flutter plugin to use the Firebase Core API, which enables connecting to multiple Firebase apps.
   firebase_core: ^0.5.0
 
-  # A Flutter plugin to use the Firebase Authentication API.
-  firebase_auth: ^0.18.0+1
+  # Use this package if you need more customization when notifying your user.
+  flushbar: ^1.10.4
 
-  # A Flutter plugin for Google Sign In.
-  google_sign_in: ^4.5.3
+  # Widgets that make it easy to integrate blocs and cubits. Built to work with package:bloc.
+  flutter_bloc: ^6.0.1
+
+  # A Flutter implementation of React hooks. Hooks are a new kind of object that manages a Widget life-cycles.
+  flutter_hooks: ^0.14.1
+
+  # deal with immutable objects
+  freezed_annotation: ^0.11.0+1
 
   # This is a simple Service Locator for Dart and Flutter projects with some additional goodies highly inspired by Splat
   get_it: ^4.0.4
 
+  # A Flutter plugin for Google Sign In.
+  google_sign_in: ^4.5.3
+
   # Injectable is a convenient code generator for get_it
   injectable: ^1.0.4
-
-  # Use this package if you need more customization when notifying your user.
-  flushbar: ^1.10.4
-
-  # Simple, fast generation of RFC4122 UUIDs.
-  uuid: ^2.2.2
-
-  # AutoRoute is a declarative routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route: ^0.6.7
 
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
   json_annotation: ^3.0.1
 
-  # A Flutter plugin to use the Cloud Firestore API.
-  cloud_firestore: ^0.14.0+2
+  # A wrapper around InheritedWidget to make them easier to use and more reusable.
+  provider: ^4.3.2+2
 
   # RxDart adds additional capabilities to Dart Streams and StreamControllers.
   rxdart: ^0.24.1
 
-  # A Flutter implementation of React hooks. Hooks are a new kind of object that manages a Widget life-cycles.
-  flutter_hooks: ^0.14.1
+  # Simple, fast generation of RFC4122 UUIDs.
+  uuid: ^2.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # AutoRoute is a declartive routing solution, where everything needed for navigation is automatically generated for you.
+  auto_route_generator: ^0.6.8
+  
   # $:> flutter pub run build_runner watch --delete-conflicting-outputs
   build_runner: null
 
   # code generator for unions/pattern-matching/copy
   freezed: ^0.11.5
 
-  # lint is a hand-picked, open-source, community-driven collection of lint rules for Dart and Flutter projects
-  lint: ^1.2.0
-
   # A generator for injectable library.
   injectable_generator: ^1.0.4
 
-  # AutoRoute is a declartive routing solution, where everything needed for navigation is automatically generated for you.
-  auto_route_generator: ^0.6.8
-
   # Provides Dart Build System builders for handling JSON.
   json_serializable: ^3.4.1
+
+  # lint is a hand-picked, open-source, community-driven collection of lint rules for Dart and Flutter projects
+  lint: ^1.2.0
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
