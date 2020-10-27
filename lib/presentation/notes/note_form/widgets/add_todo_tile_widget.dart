@@ -5,7 +5,7 @@ import 'package:flutter_notes_app/application/notes/note_form/note_form_bloc.dar
 import 'package:flutter_notes_app/application/notes/note_form/note_form_event.dart';
 import 'package:flutter_notes_app/application/notes/note_form/note_form_state.dart';
 import 'package:flutter_notes_app/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_notes_app/presentation/notes/note_form/misc/build_context_x.dart';
 
 class AddTodoTile extends StatelessWidget {
   const AddTodoTile({
@@ -18,8 +18,7 @@ class AddTodoTile extends StatelessWidget {
       listenWhen: (previous, current) =>
           previous.isEditing != current.isEditing,
       listener: (context, state) {
-        Provider.of<FormTodos>(context, listen: false).value =
-            state.note.todos.value.fold(
+        context.formTodos = state.note.todos.value.fold(
           (failure) => IList.from([]),
           (todoItemList) => todoItemList
               .map((todoItem) => TodoItemPrimitive.fromDomain(todoItem)),
@@ -36,13 +35,10 @@ class AddTodoTile extends StatelessWidget {
             child: Icon(Icons.add),
           ),
           onTap: () {
-            Provider.of<FormTodos>(context, listen: false).value =
-                Provider.of<FormTodos>(context, listen: false)
-                    .value
-                    .appendElement(TodoItemPrimitive.empty());
+            context.formTodos =
+                context.formTodos.appendElement(TodoItemPrimitive.empty());
             context.bloc<NoteFormBloc>().add(
-                  NoteFormEvent.todosChanged(
-                      Provider.of<FormTodos>(context, listen: false).value),
+                  NoteFormEvent.todosChanged(context.formTodos),
                 );
           },
         );

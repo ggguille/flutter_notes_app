@@ -152,10 +152,10 @@ class NoteFormPageScafold extends StatelessWidget {
               autovalidate: state.showErrorMessages,
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
-                    const BodyField(),
-                    const ColorField(),
-                    const AddTodoTile(),
+                  children: const [
+                    BodyField(),
+                    ColorField(),
+                    AddTodoTile(),
                   ],
                 ),
               ),
