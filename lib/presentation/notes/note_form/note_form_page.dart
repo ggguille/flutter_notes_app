@@ -12,6 +12,7 @@ import 'package:flutter_notes_app/presentation/notes/note_form/misc/todo_item_pr
 import 'package:flutter_notes_app/presentation/notes/note_form/widgets/add_todo_tile_widget.dart';
 import 'package:flutter_notes_app/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:flutter_notes_app/presentation/notes/note_form/widgets/color_field_widget.dart';
+import 'package:flutter_notes_app/presentation/notes/note_form/widgets/todo_list_widget.dart';
 import 'package:flutter_notes_app/presentation/routes/router.gr.dart';
 import 'package:provider/provider.dart';
 
@@ -155,6 +156,7 @@ class NoteFormPageScafold extends StatelessWidget {
                   children: const [
                     BodyField(),
                     ColorField(),
+                    TodoList(),
                     AddTodoTile(),
                   ],
                 ),
