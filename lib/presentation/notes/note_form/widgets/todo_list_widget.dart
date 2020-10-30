@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_notes_app/application/notes/note_form/note_form_bloc.dart';
+import 'package:flutter_notes_app/application/notes/note_form/note_form_event.dart';
 import 'package:flutter_notes_app/application/notes/note_form/note_form_state.dart';
 import 'package:flutter_notes_app/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_notes_app/presentation/notes/note_form/misc/build_context_x.dart';
 
 class TodoList extends StatelessWidget {
   const TodoList({
@@ -59,10 +61,29 @@ class TodoTile extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final todo = context.formTodos.foldLeftWithIndex<TodoItemPrimitive>(
+      TodoItemPrimitive.empty(),
+      (TodoItemPrimitive previous, int todoItemIndex,
+          TodoItemPrimitive todoItem) {
+        if (index == todoItemIndex) {
+          return todoItem;
+        }
+        return previous;
+      },
+    );
+
     return ListTile(
       leading: Checkbox(
-        value: true,
-        onChanged: (value) {},
+        value: todo.done,
+        onChanged: (value) {
+          context.formTodos = context.formTodos.map(
+            (todoItem) =>
+                todoItem == todo ? todo.copyWith(done: value) : todoItem,
+          );
+          context
+              .bloc<NoteFormBloc>()
+              .add(NoteFormEvent.todosChanged(context.formTodos));
+        },
       ),
     );
   }
