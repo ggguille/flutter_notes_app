@@ -64,6 +64,10 @@ dependencies:
   # A Flutter plugin for Google Sign In.
   google_sign_in: ^4.5.3
 
+  # A Flutter ListView that implicitly calculates the changes between two lists using the MyersDiff algorithm and animates between them for you. 
+  # The ImplicitlyAnimatedReorderableList adds reordering support to its items with fully custom animations.
+  implicitly_animated_reorderable_list: ^0.3.1
+
   # Injectable is a convenient code generator for get_it
   injectable: ^1.0.4
 
