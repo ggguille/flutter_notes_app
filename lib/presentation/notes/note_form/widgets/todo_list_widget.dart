@@ -74,50 +74,60 @@ class TodoTile extends HookWidget {
     );
     final textEditingController = useTextEditingController(text: todo.name);
 
-    return ListTile(
-      leading: Checkbox(
-        value: todo.done,
-        onChanged: (value) {
-          context.formTodos = context.formTodos.map(
-            (todoItem) =>
-                todoItem == todo ? todo.copyWith(done: value) : todoItem,
-          );
-          context
-              .bloc<NoteFormBloc>()
-              .add(NoteFormEvent.todosChanged(context.formTodos));
-        },
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(8),
       ),
-      title: TextFormField(
-        controller: textEditingController,
-        decoration: const InputDecoration(
-          hintText: 'Todo',
-          counterText: '',
-          border: InputBorder.none,
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 2,
+      ),
+      child: ListTile(
+        leading: Checkbox(
+          value: todo.done,
+          onChanged: (value) {
+            context.formTodos = context.formTodos.map(
+              (todoItem) =>
+                  todoItem == todo ? todo.copyWith(done: value) : todoItem,
+            );
+            context
+                .bloc<NoteFormBloc>()
+                .add(NoteFormEvent.todosChanged(context.formTodos));
+          },
         ),
-        maxLength: TodoName.maxLength,
-        onChanged: (value) {
-          context.formTodos = context.formTodos.map(
-            (todoItem) =>
-                todoItem == todo ? todo.copyWith(name: value) : todoItem,
-          );
-          context
-              .bloc<NoteFormBloc>()
-              .add(NoteFormEvent.todosChanged(context.formTodos));
-        },
-        validator: (value) {
-          return context.bloc<NoteFormBloc>().state.note.todos.value.fold(
-                (failure) => null,
-                (todoList) => todoList.toList()[index].name.value.fold(
-                      (failure) => failure.maybeMap(
-                        empty: (_) => 'Cannot be empty',
-                        exceedingLength: (_) => 'Too long',
-                        multiline: (_) => 'Has to be in a single line',
-                        orElse: () => null,
+        title: TextFormField(
+          controller: textEditingController,
+          decoration: const InputDecoration(
+            hintText: 'Todo',
+            counterText: '',
+            border: InputBorder.none,
+          ),
+          maxLength: TodoName.maxLength,
+          onChanged: (value) {
+            context.formTodos = context.formTodos.map(
+              (todoItem) =>
+                  todoItem == todo ? todo.copyWith(name: value) : todoItem,
+            );
+            context
+                .bloc<NoteFormBloc>()
+                .add(NoteFormEvent.todosChanged(context.formTodos));
+          },
+          validator: (value) {
+            return context.bloc<NoteFormBloc>().state.note.todos.value.fold(
+                  (failure) => null,
+                  (todoList) => todoList.toList()[index].name.value.fold(
+                        (failure) => failure.maybeMap(
+                          empty: (_) => 'Cannot be empty',
+                          exceedingLength: (_) => 'Too long',
+                          multiline: (_) => 'Has to be in a single line',
+                          orElse: () => null,
+                        ),
+                        (_) => null,
                       ),
-                      (_) => null,
-                    ),
-              );
-        },
+                );
+          },
+        ),
       ),
     );
   }
