@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_notes_app/application/notes/note_form/note_form_bloc.dart';
 import 'package:flutter_notes_app/application/notes/note_form/note_form_event.dart';
 import 'package:flutter_notes_app/application/notes/note_form/note_form_state.dart';
+import 'package:flutter_notes_app/domain/notes/value_objects.dart';
 import 'package:flutter_notes_app/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_notes_app/presentation/notes/note_form/misc/build_context_x.dart';
@@ -71,6 +72,7 @@ class TodoTile extends HookWidget {
         return previous;
       },
     );
+    final textEditingController = useTextEditingController(text: todo.name);
 
     return ListTile(
       leading: Checkbox(
@@ -83,6 +85,38 @@ class TodoTile extends HookWidget {
           context
               .bloc<NoteFormBloc>()
               .add(NoteFormEvent.todosChanged(context.formTodos));
+        },
+      ),
+      title: TextFormField(
+        controller: textEditingController,
+        decoration: const InputDecoration(
+          hintText: 'Todo',
+          counterText: '',
+          border: InputBorder.none,
+        ),
+        maxLength: TodoName.maxLength,
+        onChanged: (value) {
+          context.formTodos = context.formTodos.map(
+            (todoItem) =>
+                todoItem == todo ? todo.copyWith(name: value) : todoItem,
+          );
+          context
+              .bloc<NoteFormBloc>()
+              .add(NoteFormEvent.todosChanged(context.formTodos));
+        },
+        validator: (value) {
+          return context.bloc<NoteFormBloc>().state.note.todos.value.fold(
+                (failure) => null,
+                (todoList) => todoList.toList()[index].name.value.fold(
+                      (failure) => failure.maybeMap(
+                        empty: (_) => 'Cannot be empty',
+                        exceedingLength: (_) => 'Too long',
+                        multiline: (_) => 'Has to be in a single line',
+                        orElse: () => null,
+                      ),
+                      (_) => null,
+                    ),
+              );
         },
       ),
     );
