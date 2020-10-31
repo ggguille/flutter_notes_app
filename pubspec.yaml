@@ -52,6 +52,9 @@ dependencies:
   # A Flutter implementation of React hooks. Hooks are a new kind of object that manages a Widget life-cycles.
   flutter_hooks: ^0.14.1
 
+  # A Flutter implementation of slidable list item with directional slide actions that can be dismissed
+  flutter_slidable: ^0.5.7
+
   # deal with immutable objects
   freezed_annotation: ^0.11.0+1
 
